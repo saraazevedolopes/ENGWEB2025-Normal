@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .w3-container
+    h3 País: #{nome}
+
+    h4 Edições relacionadas
+    table.w3-table-all.w3-hoverable
+      tr
+        th Edição
+        th Ano
+        th Organização
+        th Vencedor
+      each e in edicoes
+        tr
+          td
+            a(href='/' + e._id)= e._id
+          td= e.anoEdição
+          td= e.organização
+          td
+            if e.vencedor
+              = e.vencedor
+            else
+              | Não atribuído
+
+    a.w3-button.w3-margin-top(href='/') Voltar à página principal

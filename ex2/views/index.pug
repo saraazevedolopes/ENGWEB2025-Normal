@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .w3-container
+    h3 Lista de Edições da Eurovisão
+    table.w3-table-all.w3-hoverable
+      tr
+        th ID
+        th Ano
+        th Organização
+        th Vencedor
+        th Nº Músicas
+      each ed in edicoes
+        tr
+          td
+            a(href='/' + ed._id)= ed._id
+          td= ed.anoEdição
+          td
+            a(href='/paises/' + encodeURIComponent(ed.organização))= ed.organização
+          td
+            if ed.vencedor
+              a(href='/paises/' + encodeURIComponent(ed.vencedor))= ed.vencedor
+            else
+              | Não atribuído
+          td= ed.musicas ? ed.musicas.length : 0

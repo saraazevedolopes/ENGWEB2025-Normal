@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .w3-container
+    h3 Edição #{edicao._id} - #{edicao.anoEdição}
+    ul
+      li Organização: 
+        a(href='/paises/' + encodeURIComponent(edicao.organização))= edicao.organização
+      li Vencedor: 
+        if edicao.vencedor
+          a(href='/paises/' + encodeURIComponent(edicao.vencedor))= edicao.vencedor
+        else
+          | Não atribuído
+    h4 Músicas
+    table.w3-table-all.w3-hoverable
+      tr
+        th ID
+        th Título
+        th Intérprete
+        th País
+      each m in edicao.musicas
+        tr
+          td= m.id
+          td= m.título
+          td= m.intérprete
+          td= m.país
+    a.w3-button.w3-margin-top(href='/') Voltar à página principal
