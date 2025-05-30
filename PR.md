@@ -182,3 +182,8 @@ db.edicoes.aggregate([
   { $sort: { total: -1, _id: 1 } }
 ])
 ```
+
+# 🏷️ Identificação
+
+**Nome:** Sara Azevedo Lopes  
+**Número de Aluno:** 104179
